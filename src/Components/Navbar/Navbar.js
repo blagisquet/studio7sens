@@ -1,14 +1,14 @@
 import React from 'react';
-import accueil from '../../images/accueil.jpg';
+import Logo from '../../images/logo.png';
 import './Navbar.scss';
 
 
 function Navbar() {
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className="navbar grey-darker" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item" href="">
-          <img src={accueil} width="112" height="28" />
+          <img src={Logo} />
         </a>
 
         <label role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" htmlFor="nav-toggle-state" data-target="navbarBasicExample">
@@ -21,47 +21,27 @@ function Navbar() {
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
           <a className="navbar-item">
-            Home
+            Accueil
       </a>
 
           <a className="navbar-item">
-            Documentation
+            Le studio
       </a>
 
-          <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link">
-              More
+
+          <a className="navbar-item">
+            Médias
         </a>
 
-            <div className="navbar-dropdown">
-              <a className="navbar-item">
-                About
+          <a className="navbar-item">
+            Avis
           </a>
-              <a className="navbar-item">
-                Jobs
+          <a className="navbar-item">
+            Nous trouver
           </a>
-              <a className="navbar-item">
-                Contact
+          <a className="navbar-item">
+            Contact
           </a>
-              <hr className="navbar-divider" />
-              <a className="navbar-item">
-                Report an issue
-          </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
-              <a className="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a className="button is-light">
-                Log in
-          </a>
-            </div>
-          </div>
         </div>
       </div>
     </nav>
