@@ -5,10 +5,11 @@ import './Navbar.scss';
 
 function Navbar() {
   return (
-    <nav className="navbar grey-darker" role="navigation" aria-label="main navigation">
-      <div className="navbar-brand">
+    <div>
+    <nav className="navbar has-background-grey-darker" role="navigation" aria-label="main navigation">
+      <div className="navbar-brand grey-darker">
         <a className="navbar-item" href="">
-          <img src={Logo} />
+          <img src={Logo} alt="logo du studio" />
         </a>
 
         <label role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" htmlFor="nav-toggle-state" data-target="navbarBasicExample">
@@ -45,6 +46,8 @@ function Navbar() {
         </div>
       </div>
     </nav>
+    <div className='home'>Studio Septième Sens</div>
+    </div>
   );
 }
 

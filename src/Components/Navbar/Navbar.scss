@@ -7,6 +7,25 @@
 }
 
 div {
-  background-color: black;
+  background-color: hsl(0, 0%, 21%) !important;
 }
 
+nav {
+  position: fixed;
+}
+
+a, label {
+ color: white !important;
+}
+
+label {
+  opacity: 0.7 !important;
+}
+
+.home {
+  height: 93vh;
+  width: 100%;
+  overflow: hidden;
+  background: url("../../images/accueil.jpg") center/cover fixed no-repeat;
+  // position: fixed;
+}
