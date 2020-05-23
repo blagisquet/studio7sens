@@ -1,54 +1,90 @@
-import React from 'react';
-import Logo from '../../images/logo.png';
-import './Navbar.scss';
+import React, { useState } from 'react';
 
+import Logo from '../../images/logosmall.png';
 
-function Navbar() {
-  return (
-    <div>
-    <nav className="navbar has-background-grey-darker" role="navigation" aria-label="main navigation">
-      <div className="navbar-brand grey-darker">
-        <a className="navbar-item" href="">
-          <img src={Logo} alt="logo du studio" />
-        </a>
+import '../../App.scss';
 
-        <label role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" htmlFor="nav-toggle-state" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </label>
-      </div>
-      <input type="checkbox" id="nav-toggle-state" />
-      <div id="navbarBasicExample" className="navbar-menu">
-        <div className="navbar-start">
-          <a className="navbar-item">
-            Accueil
-      </a>
+import { colors } from '../../theme/helpers';
 
-          <a className="navbar-item">
-            Le studio
-      </a>
+import styled from 'styled-components';
 
+const Navbar = ({ className }) => {
+	const [menuActive, setMenuActive] = useState(false);
+	return (
+		<section className={className}>
+			<div className="hero-head">
+				<nav className="navbar has-background-grey-darker is-fixed-top has-text-centered" role="navigation" aria-label="main navigation">
+					<div className="navbar-brand">
+						<a href="#accueil" className="navbar-item">
+							<img src={Logo} className="image" alt="logo du studio" />
+							<p className="stud is-size-5 is-hidden-mobile is-hidden-desktop-only">Studio Septième Sens</p>
+						</a>
+						<span role="presentation" onClick={() => setMenuActive(!menuActive)} onKeyDown={() => setMenuActive(!menuActive)} className={`navTrigger ${menuActive ? 'active' : ""}`}>
+							<i></i>
+							<i></i>
+							<i></i>
+						</span>
 
-          <a className="navbar-item">
-            Médias
-        </a>
+					</div>
+					<div className="navbar-end is-hidden-desktop">
+						<div id="mainListDiv" className={`main_list ${menuActive ? '' : 'show_list'}`}>
 
-          <a className="navbar-item">
-            Avis
-          </a>
-          <a className="navbar-item">
-            Nous trouver
-          </a>
-          <a className="navbar-item">
-            Contact
-          </a>
-        </div>
-      </div>
-    </nav>
-    <div className='home'>Studio Septième Sens</div>
-    </div>
-  );
+							<a href="#accueil" className="navbar-item is-size-5" onClick={() => setMenuActive(!menuActive)}>Accueil</a>
+							<a href="#studio" className="navbar-item is-size-5" onClick={() => setMenuActive(!menuActive)}>Le studio</a>
+							<a href="#services" className="navbar-item is-size-5" onClick={() => setMenuActive(!menuActive)}>Les services</a>
+							<a href="#medias" className="navbar-item is-size-5" onClick={() => setMenuActive(!menuActive)}>Médias</a>
+							<a href="#avis" className="navbar-item is-size-5" onClick={() => setMenuActive(!menuActive)}>Avis</a>
+							<a href="#map" className="navbar-item is-size-5" onClick={() => setMenuActive(!menuActive)}>Nous trouver</a>
+							<a href="#contact" className="navbar-item is-size-5" onClick={() => setMenuActive(!menuActive)}>Contact</a>
+						</div>
+					</div>
+					<div className="navbar-end is-hidden-touch">
+						<a href="#accueil" className="navbar-item is-size-5">Accueil</a>
+						<a href="#studio" className="navbar-item is-size-5">Le studio</a>
+						<a href="#services" className="navbar-item is-size-5">Les services</a>
+						<a href="#medias" className="navbar-item is-size-5">Médias</a>
+						<a href="#avis" className="navbar-item is-size-5">Avis</a>
+						<a href="#map" className="navbar-item is-size-5">Nous trouver</a>
+						<a href="#contact" className="navbar-item menu is-size-5">Contact</a>
+					</div>
+				</nav>
+			</div>
+		</section>
+	);
 }
 
-export default Navbar;
+export default styled(Navbar)`
+	.image {
+		margin-left: 1rem
+	}
+	
+	section {
+		position: fixed;
+	}
+
+	.menu-item {
+		margin-left: 2rem;
+	}
+
+	.navbar-item, label {
+		color: white;
+		&:hover {
+			background-color: hsl(0, 0%, 21%);
+			color: ${colors.primary};
+		}
+	}
+
+	.stud  {
+		margin-left: 2rem;
+	}
+
+	.menu {
+		margin-right: 1rem;
+	}
+
+	@media screen and (min-width:1024px) {
+		.navbar-end {
+		margin-top: 0.2rem !important;
+		}
+	}
+`;

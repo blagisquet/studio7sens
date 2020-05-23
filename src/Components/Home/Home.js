@@ -1,9 +1,16 @@
 import React from 'react';
-import './Home.scss';
 
-function Home() {
+import Hero from '../../theme/hero';
+
+import '../../App.scss';
+
+const Home = () => {
   return (
-    <div className='home'>Studio Septième Sens</div>
+  <Hero>
+    <section id="accueil">
+      <h1 className="is-invisible">Studio Septième Sens</h1>
+    </section>
+  </Hero>
   );
 }
 
